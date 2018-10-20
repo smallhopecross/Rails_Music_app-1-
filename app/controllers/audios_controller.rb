@@ -1,17 +1,24 @@
 class AudiosController < ApplicationController
-  before_action :set_audio, only: [:show, :edit, :update, :destroy]
+  #before_action :set_audio, only: [:show, :edit, :update, :destroy]
 
   # GET /audios
   # GET /audios.json
   def index
+    @audios = Audio.all
   end
+
+  def upload
+    @audio = Audio.new(params.require(:audio).permit(:title))
+    @audio.save
+    redirect_to action: 'up'
+  end
+
 
   def record
   end
 
- #GET /audios/up
+  #GET /audios/up
   def up
-    @audio = Audio.new
   end
 
   # GET /audios/1
@@ -69,13 +76,13 @@ class AudiosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_audio
-      @audio = Audio.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_audio
+    @audio = Audio.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def audio_params
-      params.require(:audio).permit(:title,:audio, :audio_cache)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def audio_params
+    params.require(:audio).permit(:title)
+  end
 end

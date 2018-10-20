@@ -1,22 +1,28 @@
+<h1>Uploader#form</h1>
+​
+​
+<% @audio = Audio.new %>
+<%= form_for @audio, :url => {:action => :upload} do |f| %>
+  <%= f.label :name, "title" %>
+  <%= f.text_field :title %><br>
+  <br>
+  <%= f.label :file %>
+  <%= f.file_field :file %><br>
+  <br>
+  <%= f.submit "Upload" %>
+<% end %>
+​
+​
 <%= form_with(model: audio, local: true) do |form| %>
   <% if @audio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@audio.errors.count, "error") %> prohibited this audio from being saved:</h2>
-
+      ​
       <ul>
-      <% @audio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @audio.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :audio %>
-    <%= form.file_field :audio %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

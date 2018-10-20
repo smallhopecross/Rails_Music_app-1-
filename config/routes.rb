@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :musics
   resources :users
-  resource :audios
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/audios/index" => "audios#index"
+  get "/audios" => "audios#index"
   get "audios/record" => "audios#record"
   get "/audios/up" => "audios#up"
-
+  post "/audios/create" => "audios#create"
+  get "/audios/show" => "audios#show"
+  post 'audios/upload' => "audios#upload"
 end
