@@ -8,7 +8,7 @@ class AudiosController < ApplicationController
   end
 
   def upload
-    @audio = Audio.new(params.require(:audio).permit(:title))
+    @audio = Audio.new(params.require(:audio).permit(:title, :file))
     @audio.save
     redirect_to action: 'up'
   end

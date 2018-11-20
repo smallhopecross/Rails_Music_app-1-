@@ -4,8 +4,14 @@
 
 <%= render 'form',audio: @audio %>
 
-<audio preload="metadata" controls>
-<source src="C:\Users\small\Downloads\Music Sample\new_world.mp3" type="audio/mp3">
-</audio>
+<% Audio.all.reverse_order.each do |upload| %>
+  <tr>
+    <td><%= link_to upload.title %></td>
+    <td><%= link_to upload.file %></td><br>
+  </tr>
+  <td><%= audio_tag(upload.file ,  :controls => true) %></td>
+<% end %>
+
+<br>
 
 <%= link_to 'TOPへ戻る', audios_path %>

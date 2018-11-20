@@ -7,7 +7,3 @@
   <input type="button" onclick="location.href='http://192.168.99.100:3000/audios/up'"value="To Upload">
 </div>
 
-<% Audio.all.reverse_order.each do |upload| %>
-  <li><%= link_to upload.title %>aaaa</li>
-  <!--  <li><%#= link_to 'Destroy', uploader_delete_path_path(upload), method: :delete, data: { confirm: 'Are you sure?' } %></li>-->
-<% end %>
