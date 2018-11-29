@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rails Music</h1>
-
-<div>
-  <input type="button" onclick="location.href='http://192.168.99.100:3000/audios/record'"value="To Record">
-  <input type="button" onclick="location.href='http://192.168.99.100:3000/audios/up'"value="To Upload">
+<div class="top-page">
+  <h1><span>R</span>ails <span>M</span>usic</h1>
+    <input type="button" onclick="location.href='http://192.168.99.100:3000/audios/record'"value="TO RECORD">
+    <input type="button" onclick="location.href='http://192.168.99.100:3000/audios/up'"value="TO UPLOAD">
 </div>
 
+<%= render 'footer' %>
+
+<%= stylesheet_link_tag "audios/audios_index", :media => "all" %>

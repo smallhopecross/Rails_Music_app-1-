@@ -1,14 +1,70 @@
-<p id="notice"><%= notice %></p>
-
-<h1>To Record</h1>
-
-<div>
-  <input type="button" onclick="location.href=''"value="START">
-  <input type="button" onclick="location.href=''"value="STOP">
+<div class="header">
+  <div class="header-logo">Rails Music</div>
+    <ul>
+      <li><%= link_to 'TOP', audios_path %></li>
+      <li><%= link_to 'TO UPLOAD', audios_up_path %></li>
+    </ul>
 </div>
 
 <br>
 
-<%= link_to 'TOPへ戻る', audios_path %>
+<div class="record-page">
+    <h1><span>T</span>O <span>R</span>ECORD</h1>
+    <p>実行と同時に録音がはじまり、10秒後に音声データを生成します</p>
+    <a id="dl">ダウンロード</a>
+</div>
 
-<%= javascript_include_tag "audios_record.js" %>
+<%= render 'footer' %>
+
+<%= stylesheet_link_tag "audios/audios_record", :media => "all" %>
+
+<script>
+    //様々なブラウザでマイクへのアクセス権を取得する
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+    //audioのみtrue。Web Audio APIが問題なく使えるのであれば、第二引数で指定した関数を実行する
+    navigator.getUserMedia({
+        audio: true,
+        video: false
+    }, successFunc, errorFunc);
+
+    function successFunc(stream) {
+        var recorder = new MediaRecorder(stream, {
+            mimeType: 'video/webm;codecs=vp9'
+        });
+
+        //音を拾い続けるための配列。chunkは塊という意味
+        var chunks = [];
+
+        //集音のイベントを登録する
+        recorder.addEventListener('dataavailable', function(ele) {
+            if (ele.data.size > 0) {
+                chunks.push(ele.data);
+            }
+        });
+
+        // recorder.stopが実行された時のイベント
+        recorder.addEventListener('stop', function() {
+
+            var dl = document.querySelector("#dl");
+
+            //集音したものから音声データを作成する
+            dl.href = URL.createObjectURL(new Blob(chunks));
+            dl.download = 'sample.wav';
+        });
+
+        recorder.start();
+
+        //10秒後に集音を終了する。
+        setTimeout(function() {
+            alert("stop");
+            recorder.stop();
+        }, 10000);
+    }
+
+    // Web Audio APIが使えなかった時
+    function errorFunc(error) {
+        alert("error");
+    }
+
+</script>

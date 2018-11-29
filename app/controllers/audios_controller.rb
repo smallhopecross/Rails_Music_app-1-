@@ -85,4 +85,8 @@ class AudiosController < ApplicationController
   def audio_params
     params.require(:audio).permit(:title)
   end
+
+  def contact
+  end
+
 end

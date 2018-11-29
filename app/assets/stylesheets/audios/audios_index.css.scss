@@ -1,0 +1,19 @@
+.top-page {
+  color:red;
+  font-family: Georgia; 
+  height: 500px;
+}
+
+.top-page span {
+  color: white;
+}
+
+body {
+  background-image: image-url("top.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}    
+
+  

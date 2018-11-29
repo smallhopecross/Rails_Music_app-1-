@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post "/audios/create" => "audios#create"
   get "/audios/show" => "audios#show"
   post 'audios/upload' => "audios#upload"
+  get "/audios/contact" => "audios#contact"
 end

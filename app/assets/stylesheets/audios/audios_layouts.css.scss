@@ -1,0 +1,25 @@
+footer {
+    background-color: black;
+    height: 70px;
+}
+
+footer h2 {
+    color: aqua;
+    float: left;
+    font-size: 20px;
+    padding: 0px 10px;
+    align-items: center;
+}
+
+footer li {
+    color: aqua;
+    float: right; 
+    list-style: none;
+    font-size: 20px;
+    padding: 25px 10px;
+}
+
+    a:link { color: #0000ff; }
+    a:visited { color: #000080; }
+    a:hover { color: #ff0000; }
+    a:active { color: #ff8000; }

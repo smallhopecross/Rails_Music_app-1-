@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Rails Music</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,12 @@
   </head>
 
   <body>
+  <div>
     <%= yield %>
+  </div>
+
+  
   </body>
 </html>
+
+<%= stylesheet_link_tag "audios/audios_layouts", :media => "all" %>

@@ -1,8 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>To Upload</h1>
+<div class="header">
+  <div class="header-logo">Rails Music</div>
+    <ul>
+      <li><%= link_to 'TOP', audios_path %></li>
+      <li><%= link_to 'TO RECORD', audios_record_path %></li>
+    </ul>
+</div>
 
-<%= render 'form',audio: @audio %>
+<br>
+
+<div class="up-page">
+  <h1><span>T</span>O <span>U</span>PLOAD</h1>
+
+  <%= render 'form',audio: @audio %>
+</div>
+
+<br>
 
 <% Audio.all.reverse_order.each do |upload| %>
   <tr>
@@ -12,6 +26,6 @@
   <td><%= audio_tag(upload.file ,  :controls => true) %></td>
 <% end %>
 
-<br>
+<%= render 'footer' %>
 
-<%= link_to 'TOPへ戻る', audios_path %>
+<%= stylesheet_link_tag "audios/audios_up", :media => "all" %>

@@ -1,0 +1,43 @@
+.header {
+    background-color: black;
+    height: 70px;
+    
+}
+
+.header-logo {
+    color:rgb(0, 255, 255);
+    font-family: Georgia; 
+    font-size: 20px;
+    float: left;
+    padding: 25px 10px;
+}
+
+.header li {
+    color:rgb(0, 255, 255);
+    font-family: Georgia;
+    list-style: none;
+    font-size: 20px;
+    float: right;
+    padding: 25px 10px 25px 20px;
+}
+
+.up-page {
+    color:red;
+    font-family: Georgia; 
+}
+
+.up-page span {
+    color: white;
+}
+
+.up-page h1 {
+    border-bottom: 2px solid white;
+}
+
+body {
+    background-image: image-url("up.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+  }    

@@ -1,0 +1,44 @@
+.header {
+    background-color: black;
+    height: 70px;
+    
+}
+
+.header-logo {
+    color:rgb(0, 255, 255);
+    font-family: Georgia; 
+    font-size: 20px;
+    float: left;
+    padding: 25px 10px;
+}
+
+.header li {
+    color:rgb(0, 255, 255);
+    font-family: Georgia;
+    list-style: none;
+    font-size: 20px;
+    float: right;
+    padding: 25px 10px 25px 20px;
+}
+
+.record-page {
+    color:red;
+    font-family: Georgia; 
+    height: 400px;
+}
+
+.record-page span {
+    color: white;
+}
+
+.record-page h1 {
+    border-bottom: 2px solid white;
+}
+
+body {
+    background-image: image-url("record_m.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+  }

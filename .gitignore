@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+#  画像と音声ファイルを無視する
+*.mp3
+*.png
+*.jpg
